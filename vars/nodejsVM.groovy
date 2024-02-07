@@ -100,7 +100,7 @@ def call(Map configMap){
                                 string(name: 'version', value: "$packageVersion"),
                                 string(name: 'environment', value: "dev")
                             ]
-                            build job: "${configMap.component}", wait: true, parameters: params
+                            build job: "../${configMap.component}", wait: true, parameters: params
                         }
                 }
             }
