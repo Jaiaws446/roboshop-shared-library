@@ -7,6 +7,7 @@ def call(Map configMap){
         }
 
         environment { 
+
             packageVersion = ''
             // can maintain in pipeline globals
             //nexusURL = '172.31.9.199:8081'
@@ -99,7 +100,7 @@ def call(Map configMap){
                             def params = [
                                 string(name: 'version', value: "$packageVersion"),
                                 string(name: 'environment', value: "dev")
-                                booleanParam(name: 'Create', value: "${params.Deploy}")
+                                
                             ]
                             build job: "../${configMap.component}-deploy", wait: true, parameters: params
                         }
